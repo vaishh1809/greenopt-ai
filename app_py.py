@@ -66,8 +66,7 @@ Original file is located at
 
 
 
-!pkill -f streamlit
-!streamlit run app.py --server.port 8501 & lt --port 8501
+
 
 !pip install streamlit requests matplotlib -q
 !npm install -g localtunnel
