@@ -64,7 +64,7 @@ Original file is located at
 #
 
 
-!streamlit run app.py --server.port 8501 & lt --port 8501
+
 
 !pkill -f streamlit
 !streamlit run app.py --server.port 8501 & lt --port 8501
