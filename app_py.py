@@ -63,7 +63,7 @@ Original file is located at
 #             st.error("Check internet or coordinates.")
 #
 
-!pkill -f streamlit
+
 !streamlit run app.py --server.port 8501 & lt --port 8501
 
 !pkill -f streamlit
