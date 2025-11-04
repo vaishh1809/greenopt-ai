@@ -21,8 +21,7 @@ if st.button("Optimize Layout & Generate Report", type="primary"):
     with st.spinner("Running AI optimization..."):
         try:
             capacity_kw = (num_panels * panel_watts) / 1000
-            url = f"https://developer.nrel.gov/api/pvwatts/v8.json?api_key=DEMO_KEY&lat={lat}&lon={lon}&system_capacity={capacity_kw}&azimuth=180&tilt=25&module_type=0&losses=14"
-            data = requests.get(url).json()
+            url = f"https://developer.nrel.gov/api/pvwatts/v8.json?api_key=DEMO_KEY&lat={lat}&lon={lon}&system_capacity={capacity_kw}&azimuth=180&tilt=25&module_type=0&losses=14.0"            data = requests.get(url).json()
             if 'errors' not in data:
                 annual_kwh = data['outputs']['ac_annual']
                 st.success(f"Estimated Annual Output: {annual_kwh:,.0f} kWh")
