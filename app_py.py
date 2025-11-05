@@ -20,12 +20,12 @@ st.info("Get Lat/Long: Right-click on Google Maps → 'What's here?'")
 if st.button("Optimize Layout & Generate Report", type="primary"):
     with st.spinner("Running AI optimization..."):
         try:
-            # Force 2 decimals + float
             lat = round(float(lat), 2)
             lon = round(float(lon), 2)
             capacity_kw = round(float(num_panels * panel_watts) / 1000, 2)
 
-            url = f"https://developer.nrel.gov/api/pvwatts/v8.json?api_key=dETLr7CEOQTrV2vSchAmsGPZ23gtV5biLdJe4OlP&lat={lat}&lon={lon}&system_capacity={capacity_kw}&azimuth=180&tilt=25&module_type=0&losses=14.0"
+            url = f"https://developer.nrel.gov/api/pvwatts/v8.json?api_key=dETLr7CEOQTrV2vSchAmsGPZ23gtV5biLdJe4OlP&lat={lat}&lon={lon}&system_capacity={capacity_kw}&azimuth=180&tilt=25&module_type=0&losses=14.0&array_type=1"
+
             data = requests.get(url).json()
 
             if 'errors' in data:
