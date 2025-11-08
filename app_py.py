@@ -28,9 +28,9 @@ if st.button("Optimize Layout & Generate Report", type="primary"):
 
             data = requests.get(url).json()
 
-            if 'errors' in data:
+            if 'errors' in data and len(data['errors']) > 0:
                 st.error(f"API Error: {data['errors'][0]}")
-            elif data['outputs']['ac_annual'] > 0:
+            elif 'outputs' in data and data['outputs'].get('ac_annual', 0) > 0:
                 annual_kwh = data['outputs']['ac_annual']
                 st.success(f"Estimated Annual Output: {annual_kwh:,.0f} kWh")
                 st.info("Boost vs flat: ~20% (NREL standard)")
